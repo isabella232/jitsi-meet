@@ -3,7 +3,7 @@
 var interfaceConfig = {
     // TO FIX: this needs to be handled from SASS variables. There are some
     // methods allowing to use variables both in css and js.
-    DEFAULT_BACKGROUND: '#474747',
+    DEFAULT_BACKGROUND: '#3B3E4F',
 
     /**
      * Whether or not the blurred video background for large video should be
@@ -17,7 +17,7 @@ var interfaceConfig = {
     DEFAULT_REMOTE_DISPLAY_NAME: 'User',
     DEFAULT_LOCAL_DISPLAY_NAME: 'me',
     SHOW_JITSI_WATERMARK: true,
-    JITSI_WATERMARK_LINK: 'https://jitsi.org',
+    JITSI_WATERMARK_LINK: 'https://brave.com',
 
     // if watermark is disabled by default, it can be shown only for guests
     SHOW_WATERMARK_FOR_GUESTS: true,
@@ -129,7 +129,7 @@ var interfaceConfig = {
      * If indicated some of the error dialogs may point to the support URL for
      * help.
      */
-    SUPPORT_URL: 'https://community.jitsi.org/',
+    SUPPORT_URL: 'https://community.brave.com/',
 
     /**
      * Whether the connection indicator icon should hide itself based on

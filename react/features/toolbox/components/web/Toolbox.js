@@ -31,7 +31,6 @@ import {
 import { connect, equals } from '../../../base/redux';
 import { OverflowMenuItem } from '../../../base/toolbox';
 import { getLocalVideoTrack, toggleScreensharing } from '../../../base/tracks';
-import { VideoBlurButton } from '../../../blur';
 import { ChatCounter, toggleChat } from '../../../chat';
 import { E2EEButton } from '../../../e2ee';
 import { SharedDocumentButton } from '../../../etherpad';
@@ -956,7 +955,6 @@ class Toolbox extends Component<Props, State> {
         const {
             _feedbackConfigured,
             _fullScreen,
-            _screensharing,
             _sharingVideo,
             t
         } = this.props;
@@ -994,10 +992,6 @@ class Toolbox extends Component<Props, State> {
                 && <SharedDocumentButton
                     key = 'etherpad'
                     showLabel = { true } />,
-            <VideoBlurButton
-                key = 'videobackgroundblur'
-                showLabel = { true }
-                visible = { this._shouldShowButton('videobackgroundblur') && !_screensharing } />,
             <SettingsButton
                 key = 'settings'
                 showLabel = { true }
