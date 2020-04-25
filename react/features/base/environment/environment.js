@@ -5,16 +5,13 @@ import { isMobileBrowser } from './utils';
 
 const { browser } = JitsiMeetJS.util;
 
-const DEFAULT_OPTIMAL_BROWSERS = [
-    'chrome',
-    'electron',
-    'firefox',
-    'nwjs'
-];
+const DEFAULT_OPTIMAL_BROWSERS = [];
 
 const DEFAULT_UNSUPPORTED_BROWSERS = [];
+let checkedIsBrave = false;
 
 const browserNameToCheck = {
+    brave: () => checkedIsBrave,
     chrome: browser.isChrome.bind(browser),
     chromium: browser.isChromiumBased.bind(browser),
     electron: browser.isElectron.bind(browser),
@@ -36,6 +33,34 @@ declare var interfaceConfig: Object;
 export function isBrowsersOptimal(browserName: string) {
     return (interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS)
         .includes(browserName);
+}
+
+/**
+ * Resolves as true when browser is brave.
+ *
+ * @returns {Promise<boolean>}
+ */
+/* eslint-disable */
+export async function isBrave(): Promise<boolean> {
+    try {
+        const nav: any = navigator;
+        const isBraveCheck = await nav.brave.isBrave();
+
+        return isBraveCheck;
+    } catch (e) {
+        return false;
+    }
+}
+/* eslint-enable */
+
+/**
+ * Reverse sets the brave boolean to allow for a sync function.
+ *
+ * @param {boolean} externalBraveCheck - Whether or not the browser is brave.
+ * @returns {void}
+ */
+export function receiveIsBraveCheck(externalBraveCheck: boolean) { // eslint-disable-line
+    checkedIsBrave = externalBraveCheck;
 }
 
 /**
