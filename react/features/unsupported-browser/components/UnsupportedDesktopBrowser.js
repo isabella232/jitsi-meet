@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { isBrowsersOptimal } from '../../base/environment';
 import { translate } from '../../base/i18n';
 
-import { CHROME, FIREFOX } from './browserLinks';
+import { BRAVE, BRAVE2 } from './browserLinks';
 
 /**
  * The namespace of the CSS styles of UnsupportedDesktopBrowser.
@@ -42,18 +42,12 @@ class UnsupportedDesktopBrowser extends Component<Props> {
         return (
             <div className = { _SNS }>
                 <h2 className = { `${_SNS}__title` }>
-                    It looks like you're using a browser we don't support.
+                    <a href = { BRAVE } >Download Brave</a> to join this call.
                 </h2>
                 <p className = { `${_SNS}__description` }>
-                    Please try again with the latest version of&nbsp;
                     <a
                         className = { `${_SNS}__link` }
-                        href = { CHROME } >Chrome</a>&nbsp;
-                    {
-                        this._showFirefox() && <>and <a
-                            className = { `${_SNS}__link` }
-                            href = { FIREFOX }>Firefox</a></>
-                    }
+                        href = { BRAVE2 } >Learn more.</a>&nbsp;
                 </p>
             </div>
         );

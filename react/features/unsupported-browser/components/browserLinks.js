@@ -1,6 +1,14 @@
 /* @flow */
 
 /**
+ * The URL at which Brave is available for download.
+ *
+ * @type {string}
+ */
+export const BRAVE = 'https://brave.com/download/';
+export const BRAVE2 = 'https://brave.com/';
+
+/**
  * The URL at which Google Chrome is available for download.
  *
  * @type {string}

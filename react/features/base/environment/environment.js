@@ -12,7 +12,7 @@ let checkedIsBrave = false;
 
 const browserNameToCheck = {
     brave: () => checkedIsBrave,
-    chrome: browser.isChrome.bind(browser),
+    chrome: () => checkedIsBrave,
     chromium: browser.isChromiumBased.bind(browser),
     electron: browser.isElectron.bind(browser),
     firefox: browser.isFirefox.bind(browser),
@@ -89,6 +89,10 @@ export function isSuboptimalBrowser() {
 export function isSupportedBrowser() {
     if (navigator.product === 'ReactNative') {
         return false;
+    }
+
+    if (checkedIsBrave) {
+        return true;
     }
 
     // Blacklists apply to desktop browsers only right now.
