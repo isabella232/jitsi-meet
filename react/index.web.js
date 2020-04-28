@@ -8,7 +8,7 @@ import { getJitsiMeetTransport } from '../modules/transport';
 import { App } from './features/app';
 import { getLogger } from './features/base/logging/functions';
 import { Platform } from './features/base/react';
-import { receiveIsBraveCheck, isBrave } from './features/base/lib-jitsi-meet';
+import { receiveIsBraveCheck, isBrave } from './features/base/environment';
 
 const logger = getLogger('index.web');
 const OS = Platform.OS;
