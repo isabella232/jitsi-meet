@@ -92,7 +92,8 @@ export function isSupportedBrowser() {
     }
 
     if (checkedIsBrave) {
-        return true;
+        // at present, only desktop browser supported
+        return !isMobileBrowser();
     }
 
     // Blacklists apply to desktop browsers only right now.

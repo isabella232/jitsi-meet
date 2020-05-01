@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import { isBrowsersOptimal } from '../../base/environment';
+import { isBrowsersOptimal, isBrave } from '../../base/environment';
 import { translate } from '../../base/i18n';
 
 import { BRAVE, BRAVE2 } from './browserLinks';
@@ -39,6 +39,17 @@ class UnsupportedDesktopBrowser extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
+        if (isBrave()) {
+            // temporary...
+            return (
+                <div className = { _SNS }>
+                    <h2 className = { `${_SNS}__title` }>
+                        Sorry! At present, mobile browsers are not supported.
+                    </h2>
+                </div>
+            );
+        }
+
         return (
             <div className = { _SNS }>
                 <h2 className = { `${_SNS}__title` }>
