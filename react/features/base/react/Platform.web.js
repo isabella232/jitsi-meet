@@ -1,11 +1,11 @@
 /* @flow */
 
-const { userAgent } = navigator;
+const { platform, userAgent } = navigator;
 let OS;
 
 if (userAgent.match(/Android/i)) {
     OS = 'android';
-} else if (userAgent.match(/iP(ad|hone|od)/i)) {
+} else if (userAgent.match(/iP(ad|hone|od)/i) || platform.match(/iP(ad|hone|od)/i)) {
     OS = 'ios';
 } else if (userAgent.match(/Mac(intosh| OS X)/i)) {
     OS = 'macos';
