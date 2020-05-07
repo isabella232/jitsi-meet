@@ -7,7 +7,7 @@ const { browser } = JitsiMeetJS.util;
 
 const DEFAULT_OPTIMAL_BROWSERS = [];
 
-const DEFAULT_UNSUPPORTED_BROWSERS = [];
+// const DEFAULT_UNSUPPORTED_BROWSERS = [];
 let checkedIsBrave = false;
 
 const browserNameToCheck = {
@@ -64,6 +64,15 @@ export function receiveIsBraveCheck(externalBraveCheck: boolean) { // eslint-dis
 }
 
 /**
+ * Returns whether or not the current browser is the Brave browser.
+ *
+ * @returns {boolean}
+ */
+export function isBraveBrowser() {
+    return checkedIsBrave;
+}
+
+/**
  * Returns whether or not the current browser or the list of passed in browsers
  * is considered suboptimal. Suboptimal means it is a supported browser but has
  * not been explicitly listed as being optimal, possibly due to functionality
@@ -96,6 +105,10 @@ export function isSupportedBrowser() {
         return !isMobileBrowser();
     }
 
+    return false;
+
+/*
+
     // Blacklists apply to desktop browsers only right now.
     if (!isMobileBrowser() && _isCurrentBrowserInList(
         interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
@@ -108,6 +121,7 @@ export function isSupportedBrowser() {
     // - if the URL points to a conference then deep-linking will take
     //   care of it.
     return isMobileBrowser() || JitsiMeetJS.isWebRtcSupported();
+ */
 }
 
 /**

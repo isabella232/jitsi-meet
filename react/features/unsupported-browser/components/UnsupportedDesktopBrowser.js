@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react';
 
-import { isBrowsersOptimal, isBrave } from '../../base/environment';
+import { isBrowsersOptimal, isBraveBrowser } from '../../base/environment';
+import { isMobileBrowser } from '../../base/environment/utils';
 import { translate } from '../../base/i18n';
 
 import { BRAVE, BRAVE2 } from './browserLinks';
@@ -39,7 +40,7 @@ class UnsupportedDesktopBrowser extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-        if (isBrave()) {
+        if (isBraveBrowser() && isMobileBrowser()) {
             // temporary...
             return (
                 <div className = { _SNS }>
