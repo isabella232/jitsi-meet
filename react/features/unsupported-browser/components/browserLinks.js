@@ -5,8 +5,8 @@
  *
  * @type {string}
  */
-export const BRAVE = 'https://brave.com/download/';
-export const BRAVE2 = 'https://brave.com/';
+export const BRAVE_DOWNLOAD = 'https://brave.com/download/';
+export const BRAVE_SITE = 'https://brave.com/';
 
 /**
  * The URL at which Google Chrome is available for download.

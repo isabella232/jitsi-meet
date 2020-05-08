@@ -6,7 +6,7 @@ import { isBrowsersOptimal, isBraveBrowser } from '../../base/environment';
 import { isMobileBrowser } from '../../base/environment/utils';
 import { translate } from '../../base/i18n';
 
-import { BRAVE, BRAVE2 } from './browserLinks';
+import { BRAVE_DOWNLOAD, BRAVE_SITE } from './browserLinks';
 
 /**
  * The namespace of the CSS styles of UnsupportedDesktopBrowser.
@@ -54,12 +54,12 @@ class UnsupportedDesktopBrowser extends Component<Props> {
         return (
             <div className = { _SNS }>
                 <h2 className = { `${_SNS}__title` }>
-                    <a href = { BRAVE } >Download Brave</a> to join this call.
+                    <a href = { BRAVE_DOWNLOAD } >Download Brave</a> to join this call.
                 </h2>
                 <p className = { `${_SNS}__description` }>
                     <a
                         className = { `${_SNS}__link` }
-                        href = { BRAVE2 } >Learn more.</a>&nbsp;
+                        href = { BRAVE_SITE } >Learn more.</a>&nbsp;
                 </p>
             </div>
         );
