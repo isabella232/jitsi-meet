@@ -164,7 +164,9 @@ class WelcomePage extends AbstractWelcomePage {
                 className = { `welcome ${showAdditionalContent
                     ? 'with-content' : 'without-content'}` }
                 id = 'welcome_page'>
-                <a className = 'welcome-watermark' href = { 'https://brave.com/download/' }></a>
+                <a
+                    className = 'welcome-watermark'
+                    href = { 'https://brave.com/download/' } />
                 <div className = 'header'>
                     <div className = 'welcome-page-settings'>
                         <SettingsButton
@@ -190,7 +192,7 @@ class WelcomePage extends AbstractWelcomePage {
                         <div
                             className = 'welcome-page-button'
                             id = 'enter_room_button'
-                            onClick = { this._launchCall }>
+                            onClick = { this._onLaunchCall }>
                             {
                                 showResponsiveText
                                     ? t('welcomepage.goSmall')
@@ -199,7 +201,8 @@ class WelcomePage extends AbstractWelcomePage {
                         </div>
                     </div>
                     <div className = 'footer-text'>
-                    { t('welcomepage.footerText') } <a href = { 'https://brave.com/download/' }>Brave Browser</a>
+                        { t('welcomepage.footerText') }
+                        <a href = { 'https://brave.com/download/' }>Brave Browser</a>
                     </div>
                 </div>
                 { showAdditionalContent
@@ -216,10 +219,32 @@ class WelcomePage extends AbstractWelcomePage {
      *
      * @returns {ReactElement|null}
      */
-    _launchCall() {
-        const room = 'test';
+    _onLaunchCall() {
+        const windowCrypto = typeof window !== 'undefined' && (window.crypto || window.msCrypto);
+        const charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const maxByte = 256 - (256 % charset.length);
+        let targetLength = 32;
+        let name = '';
 
-        window.open(`https://together.brave.com/${room}`, '_self');
+        while (targetLength > 0) {
+            const size = Math.min(Math.ceil(targetLength * 256 / maxByte), 65535);
+            const buf = new Uint8Array(size);
+
+            windowCrypto.getRandomValues(buf);
+
+            for (let i = 0; i < buf.length && targetLength > 0; ++i) {
+                const randomByte = buf[i];
+
+                if (randomByte < maxByte) {
+                    name += charset.charAt(randomByte % charset.length);
+                    --targetLength;
+                }
+            }
+        }
+
+        name = btoa(name);
+
+        window.open(`https://together.brave.com/${name}`, '_self');
     }
 
     /**
