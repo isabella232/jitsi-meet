@@ -38,7 +38,7 @@ body.welcome-page {
             flex-direction: column;
             margin-bottom: $welcomePageHeaderTextMarginBottom;
             max-width: calc(100% - 40px);
-            width: 566px;
+            width: 570px;
             z-index: $zindex2;
         }
 
@@ -60,6 +60,11 @@ body.welcome-page {
             line-height: $welcomePageHeaderTextDescriptionLineHeight;
             margin-bottom: $welcomePageHeaderTextDescriptionMarginBottom;
             align-self: $welcomePageHeaderTextDescriptionAlignSelf;
+
+            a {
+                color: #FB542B;
+                text-decoration: none;
+            }
         }
     }
 

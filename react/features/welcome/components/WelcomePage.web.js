@@ -154,7 +154,6 @@ class WelcomePage extends AbstractWelcomePage {
      */
     render() {
         const { t } = this.props;
-        const { APP_NAME } = interfaceConfig;
         const showAdditionalContent = this._shouldShowAdditionalContent();
         const showAdditionalToolbarContent = this._shouldShowAdditionalToolbarContent();
         const showResponsiveText = this._shouldShowResponsiveText();
@@ -184,8 +183,9 @@ class WelcomePage extends AbstractWelcomePage {
                             { t('welcomepage.title') }
                         </h1>
                         <p className = 'header-text-description'>
-                            { t('welcomepage.appDescription',
-                                { app: APP_NAME }) }
+                            { t('welcomepage.appDescription') }
+                            &nbsp;Learn about&nbsp;
+                            <a href = { 'https://brave.com/privacy/#together' }>privacy protection and data use.</a>
                         </p>
                     </div>
                     <div id = 'enter_room'>
