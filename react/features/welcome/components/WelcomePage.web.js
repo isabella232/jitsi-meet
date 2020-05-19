@@ -242,7 +242,7 @@ class WelcomePage extends AbstractWelcomePage {
             }
         }
 
-        name = btoa(name);
+        name = btoa(name).replace(/=/g, '');
 
         window.open(`https://together.brave.com/${name}`, '_self');
     }

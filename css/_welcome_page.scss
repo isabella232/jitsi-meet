@@ -121,3 +121,29 @@ body.welcome-page {
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .welcome {
+        background-color: #17171F;
+    
+        .header {
+            .header-today-logo {
+                background: url('../images/togetherLogo_dark.svg');
+            }
+    
+            .header-text-title {
+                color: #F8F9FA;
+            }
+        }
+    
+        .footer-text {
+            a {
+                color: #F8F9FA;
+            }
+        }
+
+        .welcome-watermark {
+            background: url('../images/brave_logo_dark.svg');
+        }
+    }
+}
