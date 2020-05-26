@@ -228,7 +228,7 @@ class WelcomePage extends AbstractWelcomePage {
         windowCrypto.getRandomValues(buf);
 
         const name = btoa(String.fromCharCode.apply(null, buf))
-            .replace(/+/g, '-')
+            .replace(/\+/g, '-')
             .replace(/\//g, '_')
             .replace(/=/g, '');
 
