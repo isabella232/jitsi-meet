@@ -185,7 +185,9 @@ class WelcomePage extends AbstractWelcomePage {
                         <p className = 'header-text-description'>
                             { t('welcomepage.appDescription') }
                             &nbsp;Learn about&nbsp;
-                            <a href = { 'https://brave.com/privacy/#together' }>privacy protection and data use.</a>
+                            <a href = { 'https://brave.com/privacy/#brave-together-learn' }>
+                                privacy protection and data use.
+                            </a>
                         </p>
                     </div>
                     <div id = 'enter_room'>
@@ -221,28 +223,14 @@ class WelcomePage extends AbstractWelcomePage {
      */
     _onLaunchCall() {
         const windowCrypto = typeof window !== 'undefined' && (window.crypto || window.msCrypto);
-        const charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const maxByte = 256 - (256 % charset.length);
-        let targetLength = 32;
-        let name = '';
+        const buf = new Uint8Array(32);
 
-        while (targetLength > 0) {
-            const size = Math.min(Math.ceil(targetLength * 256 / maxByte), 65535);
-            const buf = new Uint8Array(size);
+        windowCrypto.getRandomValues(buf);
 
-            windowCrypto.getRandomValues(buf);
-
-            for (let i = 0; i < buf.length && targetLength > 0; ++i) {
-                const randomByte = buf[i];
-
-                if (randomByte < maxByte) {
-                    name += charset.charAt(randomByte % charset.length);
-                    --targetLength;
-                }
-            }
-        }
-
-        name = btoa(name).replace(/=/g, '');
+        const name = btoa(String.fromCharCode.apply(null, buf))
+            .replace(/+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=/g, '');
 
         window.open(`https://together.brave.com/${name}`, '_self');
     }
