@@ -11,6 +11,7 @@ import { SettingsButton, SETTINGS_TABS } from '../../settings';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
+import { isBraveBrowser } from '../../base/environment';
 
 /**
  * The pattern used to validate room name.
@@ -167,7 +168,7 @@ class WelcomePage extends AbstractWelcomePage {
                     className = 'welcome-watermark'
                     href = { 'https://brave.com/download/' } />
                 <div className = 'header'>
-                    <div className = 'welcome-page-settings'>
+                    { isBraveBrowser() ? <div className = 'welcome-page-settings'>
                         <SettingsButton
                             defaultTab = { SETTINGS_TABS.CALENDAR } />
                         { showAdditionalToolbarContent
@@ -176,7 +177,7 @@ class WelcomePage extends AbstractWelcomePage {
                                 ref = { this._setAdditionalToolbarContentRef } />
                             : null
                         }
-                    </div>
+                    </div> : null}
                     <div className = 'header-today-logo' />
                     <div className = 'header-text'>
                         <h1 className = 'header-text-title'>
