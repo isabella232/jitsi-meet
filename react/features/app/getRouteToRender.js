@@ -117,11 +117,7 @@ function _getWebWelcomePageRoute(state): Promise<Route> {
     const route = _getEmptyRoute();
 
     if (isWelcomePageUserEnabled(state)) {
-        if (isSupportedBrowser()) {
-            route.component = WelcomePage;
-        } else {
-            route.component = UnsupportedDesktopBrowser;
-        }
+        route.component = WelcomePage;
     } else {
         // Web: if the welcome page is disabled, go directly to a random room.
 
