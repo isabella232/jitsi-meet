@@ -5,6 +5,7 @@ import React from 'react';
 import { translate } from '../../base/i18n';
 import { connect } from '../../base/redux';
 import { isMobileBrowser } from '../../base/environment/utils';
+import { receiveIsBraveCheck } from '../../base/environment';
 import { CalendarList } from '../../calendar-sync';
 import { RecentList } from '../../recent-list';
 import { SettingsButton, SETTINGS_TABS } from '../../settings';
@@ -192,7 +193,7 @@ class WelcomePage extends AbstractWelcomePage {
                         </p>
                     </div>
                     <div id = 'enter_room'>
-                        <div
+                        {receiveIsBraveCheck() ? <div
                             className = 'welcome-page-button'
                             id = 'enter_room_button'
                             onClick = { this._onLaunchCall }>
@@ -201,11 +202,11 @@ class WelcomePage extends AbstractWelcomePage {
                                     ? t('welcomepage.goSmall')
                                     : t('welcomepage.go')
                             }
-                        </div>
+                        </div> : null}
                     </div>
                     <div className = 'footer-text'>
                         { t('welcomepage.footerText') }
-                        <a href = { 'https://brave.com/download/' }>Brave Browser</a>
+                        <a href = { 'https://brave.com/download/bravetogether' }>Brave Browser</a>
                     </div>
                 </div>
                 { showAdditionalContent
