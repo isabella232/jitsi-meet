@@ -192,7 +192,8 @@ var interfaceConfig = {
         'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
         'fodeviceselection', 'hangup', 'profile', 'chat', 
 //                                                        'recording',
-        'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+                         'etherpad', 'sharedvideo', 'settings', 'raisehand',
+//      'livestreaming',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
         'tileview',                        'download', 'help', 'mute-everyone', 'security'
 //                  'videobackgroundblur',
