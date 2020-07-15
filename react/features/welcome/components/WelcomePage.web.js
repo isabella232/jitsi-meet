@@ -2,18 +2,18 @@
 
 import React from 'react';
 
+import { isBraveBrowser } from '../../base/environment';
 import { isMobileBrowser } from '../../base/environment/utils';
-import { translate, translateToHTML } from '../../base/i18n';
+import { translate } from '../../base/i18n';
 import { Icon, IconWarning } from '../../base/icons';
 import { connect } from '../../base/redux';
 import { CalendarList } from '../../calendar-sync';
 import { RecentList } from '../../recent-list';
 import { SettingsButton, SETTINGS_TABS } from '../../settings';
+import { BRAVE_DOWNLOAD } from '../../unsupported-browser/components/browserLinks';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
-import { isBraveBrowser } from '../../base/environment';
-import { BRAVE_DOWNLOAD } from '../../unsupported-browser/components/browserLinks';
 
 /**
  * The pattern used to validate room name.
@@ -156,8 +156,7 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     render() {
-        const { _moderatedRoomServiceUrl, t } = this.props;
-        const { APP_NAME } = interfaceConfig;
+        const { t } = this.props;
         const showAdditionalContent = this._shouldShowAdditionalContent();
         const showAdditionalToolbarContent = this._shouldShowAdditionalToolbarContent();
         const showResponsiveText = this._shouldShowResponsiveText();
@@ -211,17 +210,10 @@ class WelcomePage extends AbstractWelcomePage {
                             { t('welcomepage.download') }
                         </div> }
                     </div>
-                    { _moderatedRoomServiceUrl && (
-                        <div id = 'moderated-meetings'>
-                            <p>
-                                {
-                                    translateToHTML(
-                                        t, 'welcomepage.moderatedMessage', { url: _moderatedRoomServiceUrl })
-                                }
-                            </p>
-                        </div>
-                    ) }
-                    { this._renderTabs() }
+                    <div className = 'footer-text'>
+                        { t('welcomepage.footerText') }
+                        <a href = { 'https://brave.com/download/' }>Brave Browser</a>
+                    </div>
                 </div>
                 { showAdditionalContent
                     ? <div
@@ -254,8 +246,8 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     _onLaunchCall() {
-        const { location, crypto, msCrypto } = window
-        const { protocol, host } = location
+        const { location, crypto, msCrypto } = window;
+        const { protocol, host } = location;
         const windowCrypto = typeof window !== 'undefined' && (crypto || msCrypto);
         const buf = new Uint8Array(32);
 
@@ -270,7 +262,7 @@ class WelcomePage extends AbstractWelcomePage {
     }
 
     /**
-     * Redirects to Brave download page
+     * Redirects to Brave download page.
      *
      * @returns {ReactElement|null}
      */

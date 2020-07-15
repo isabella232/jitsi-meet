@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom';
 import { getJitsiMeetTransport } from '../modules/transport';
 
 import { App } from './features/app/components';
+import { receiveIsBraveCheck, isBrave } from './features/base/environment';
 import { getLogger } from './features/base/logging/functions';
 import { Platform } from './features/base/react';
 import { getJitsiMeetGlobalNS } from './features/base/util';
 import PrejoinApp from './features/prejoin/components/PrejoinApp';
-import { receiveIsBraveCheck, isBrave } from './features/base/environment';
 
 const logger = getLogger('index.web');
 const OS = Platform.OS;
