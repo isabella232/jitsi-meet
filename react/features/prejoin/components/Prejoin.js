@@ -346,11 +346,7 @@ class Prejoin extends Component<Props, State> {
      * @returns {React$Element}
      */
     _renderSkipPrejoinButton() {
-        const { buttonIsToggled, t, showSkipPrejoin } = this.props;
-
-        if (!showSkipPrejoin) {
-            return null;
-        }
+        const { buttonIsToggled, t } = this.props;
 
         return (
             <div className = 'prejoin-checkbox-container'>
