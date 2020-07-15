@@ -61,6 +61,7 @@ body.welcome-page {
             line-height: $welcomePageHeaderTextDescriptionLineHeight;
             margin-bottom: $welcomePageHeaderTextDescriptionMarginBottom;
             align-self: $welcomePageHeaderTextDescriptionAlignSelf;
+        }
 
         #enter_room {
             display: flex;
@@ -116,7 +117,6 @@ body.welcome-page {
                 }
             }
         }
-    }
 
         #moderated-meetings {
             max-width: calc(100% - 40px);
@@ -223,17 +223,17 @@ body.welcome-page {
 @media (prefers-color-scheme: dark) {
     .welcome {
         background-color: #17171F;
-    
+
         .header {
             .header-today-logo {
                 background: url('../images/togetherLogo_dark.svg');
             }
-    
+
             .header-text-title {
                 color: #F8F9FA;
             }
         }
-    
+
         .footer-text {
             a {
                 color: #F8F9FA;
