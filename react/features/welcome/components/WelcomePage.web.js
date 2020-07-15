@@ -168,7 +168,7 @@ class WelcomePage extends AbstractWelcomePage {
                 id = 'welcome_page'>
                 <a
                     className = 'welcome-watermark'
-                    href = { 'https://brave.com/download/' } />
+                    href = { BRAVE_DOWNLOAD } />
                 <div className = 'header'>
                     { isBraveBrowser() ? <div className = 'welcome-page-settings'>
                         <SettingsButton
@@ -212,7 +212,7 @@ class WelcomePage extends AbstractWelcomePage {
                     </div>
                     <div className = 'footer-text'>
                         { t('welcomepage.footerText') }
-                        <a href = { 'https://brave.com/download/' }>Brave Browser</a>
+                        <a href = { BRAVE_DOWNLOAD }>Brave Browser</a>
                     </div>
                 </div>
                 { showAdditionalContent
