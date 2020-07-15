@@ -185,9 +185,6 @@ class TestConnectionInfo extends Component<Props, State> {
                     id = 'org.jitsi.meet.conference.joinedState'
                     value = { this.props._conferenceJoinedState } />
                 <TestHint
-                    id = 'org.jitsi.meet.conference.grantModeratorAvailable'
-                    value = { true } />
-                <TestHint
                     id = 'org.jitsi.meet.conference.localParticipantRole'
                     value = { this.props._localUserRole } />
                 <TestHint
