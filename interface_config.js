@@ -195,7 +195,8 @@ var interfaceConfig = {
                          'etherpad', 'sharedvideo', 'settings', 'raisehand',
 //      'livestreaming',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'download', 'help', 'mute-everyone', 'security'
+        'tileview',                        'download', 'help', 'mute-everyone', 'security'
+//                  'videobackgroundblur',
     ],
 
     TOOLBAR_TIMEOUT: 4000,
