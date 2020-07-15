@@ -61,100 +61,24 @@ body.welcome-page {
             line-height: $welcomePageHeaderTextDescriptionLineHeight;
             margin-bottom: $welcomePageHeaderTextDescriptionMarginBottom;
             align-self: $welcomePageHeaderTextDescriptionAlignSelf;
-        }
 
-        #enter_room {
-            display: flex;
-            align-items: center;
-            max-width: calc(100% - 40px);
-            width: $welcomePageEnterRoomWidth;
-            z-index: $zindex2;
-            background-color: #fff;
-            padding: $welcomePageEnterRoomPadding;
-            border-radius: $welcomePageEnterRoomBorderRadius;
-
-            .enter-room-input-container {
-                width: 100%;
-                padding: $welcomePageEnterRoomInputContainerPadding;
-                text-align: left;
-                color: #253858;
-                height: fit-content;
-
-                .enter-room-title {
-                    display: $welcomePageEnterRoomTitleDisplay;
-                    font-size: 18px;
-                    font-weight: bold;
-                    padding-bottom: 5px;
-                }
-
-                .enter-room-input {
-                    border-width: $welcomePageEnterRoomInputContainerBorderWidth;
-                    border-style: $welcomePageEnterRoomInputContainerBorderStyle;
-                    border-image: $welcomePageEnterRoomInputContainerBorderImage;
-                    display: inline-block;
-                    width: 100%;
-                    font-size: 14px;
-                }
-
-                .insecure-room-name-warning {
-                    align-items: center;
-                    color: $defaultWarningColor;
-                    display: flex;
-                    flex-direction: row;
-                    margin-top: 5px;
-
-                    .jitsi-icon {
-                        margin-right: 15px;
-
-                        svg {
-                            fill: $defaultWarningColor
-                        }
-                    }
-                }
-
-                ::placeholder {
-                    color: #253858;
-                }
+            a {
+              color: #FB542B;
+              text-decoration: none;
             }
         }
+    }
 
-        #moderated-meetings {
-            max-width: calc(100% - 40px);
-            padding: 16px 0 39px 0;
-            width: $welcomePageEnterRoomWidth;
+    .footer-text {
+        color: #84889C;
+        font-size: 14px;
 
-            p {
-                color: $welcomePageDescriptionColor;
-                text-align: left;
-
-                a {
-                    color: inherit;
-                    font-weight: 600;
-                }
-            }
+        &.with-margin {
+            margin-top: 20px;
         }
 
-        .tab-container {
-            font-size: 16px;
-            position: relative;
-            text-align: left;
-            min-height: 354px;
-            width: 710px;
-            background: #75A7E7;
-            display: $welcomePageTabContainerDisplay;
-            flex-direction: column;
-
-            .tab-content{
-                display: $welcomePageTabContentDisplay;
-                margin: 5px 0px;
-                overflow: hidden;
-                flex-grow: 1;
-                position: relative;
-
-                > * {
-                    position: absolute;
-                }
-            }
+        &.without-margin {
+            margin-top: 0;
         }
 
         a {
