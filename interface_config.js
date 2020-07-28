@@ -169,10 +169,6 @@ var interfaceConfig = {
      * If indicated some of the error dialogs may point to the support URL for
      * help.
      */
-    /*
-     * If indicated some of the error dialogs may point to the support URL for
-     * help.
-     */
     SUPPORT_URL: 'https://community.brave.com/',
 
     TOOLBAR_ALWAYS_VISIBLE: false,
@@ -189,7 +185,6 @@ var interfaceConfig = {
      * - 'desktop' controls the "Share your screen" button
      */
     TOOLBAR_BUTTONS: [
-
         'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
         'fodeviceselection', 'hangup', 'profile', 'chat',
 //                                                        'recording',
