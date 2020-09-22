@@ -1,5 +1,7 @@
 /* @flow */
 
+const { host } = window.location;
+
 /**
  * The URL at which Brave is available for download.
  *
@@ -7,6 +9,13 @@
  */
 export const BRAVE_DOWNLOAD = 'https://brave.com/download/bravetogether';
 export const BRAVE_SITE = 'https://brave.com/';
+
+/**
+ * The URL at which a new room is created.
+ *
+ * @type {string}
+ */
+export const BRAVE_WIDGET_PAGE = `//${host}/widget`;
 
 /**
  * The URL at which Google Chrome is available for download.

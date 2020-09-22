@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { getJitsiMeetTransport } from '../modules/transport';
 
 import { App } from './features/app/components';
+import { createRoomPathAndEnter } from './features/app/getRouteToRender';
 import { receiveIsBraveCheck, isBrave } from './features/base/environment';
 import { getLogger } from './features/base/logging/functions';
 import { Platform } from './features/base/react';
@@ -69,6 +70,9 @@ globalNS.renderEntryPoint = async ({
     props = {},
     elementId = 'react'
 }) => {
+    if (window.location.pathname === '/widget') {
+        return createRoomPathAndEnter();
+    }
     receiveIsBraveCheck(await isBrave());
 
     ReactDOM.render(
