@@ -153,7 +153,7 @@ function _getEmptyRoute(): Route {
  */
 export function createRoomPathAndEnter(): void {
     const { location, crypto, msCrypto } = window;
-    const { protocol, host } = location;
+    const { host } = location;
     const windowCrypto = typeof window !== 'undefined' && (crypto || msCrypto);
     const buf = new Uint8Array(32);
 
@@ -164,5 +164,5 @@ export function createRoomPathAndEnter(): void {
         .replace(/\//g, '_')
         .replace(/=/g, '');
 
-    window.open(`${protocol}//${host}/${name}`, '_self');
+    window.open(`//${host}/${name}`, '_self');
 }
