@@ -187,12 +187,9 @@ var interfaceConfig = {
     TOOLBAR_BUTTONS: [
         'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
         'fodeviceselection', 'hangup', 'profile', 'chat',
-//                                                        'recording',
-                         'etherpad', 'sharedvideo', 'settings', 'raisehand',
-//      'livestreaming',
+        'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview',                        'download', 'help', 'mute-everyone', 'security'
-//                  'videobackgroundblur',
+        'tileview', 'download', 'help', 'mute-everyone', 'security'
     ],
 
     TOOLBAR_TIMEOUT: 4000,

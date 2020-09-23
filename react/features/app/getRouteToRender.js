@@ -145,3 +145,24 @@ function _getEmptyRoute(): Route {
         href: undefined
     };
 }
+
+/**
+ * Creates a room path and navigates to it.
+ *
+ * @returns {void}
+ */
+export function createRoomPathAndEnter(): void {
+    const { location, crypto, msCrypto } = window;
+    const { host } = location;
+    const windowCrypto = typeof window !== 'undefined' && (crypto || msCrypto);
+    const buf = new Uint8Array(32);
+
+    windowCrypto.getRandomValues(buf);
+
+    const name = btoa(String.fromCharCode.apply(null, buf))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+
+    window.open(`//${host}/${name}`, '_self');
+}

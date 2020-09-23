@@ -10,7 +10,7 @@ import { connect } from '../../base/redux';
 import { CalendarList } from '../../calendar-sync';
 import { RecentList } from '../../recent-list';
 import { SettingsButton, SETTINGS_TABS } from '../../settings';
-import { BRAVE_DOWNLOAD } from '../../unsupported-browser/components/browserLinks';
+import { BRAVE_DOWNLOAD, BRAVE_WIDGET_PAGE } from '../../unsupported-browser/components/browserLinks';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
@@ -246,19 +246,7 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     _onLaunchCall() {
-        const { location, crypto, msCrypto } = window;
-        const { protocol, host } = location;
-        const windowCrypto = typeof window !== 'undefined' && (crypto || msCrypto);
-        const buf = new Uint8Array(32);
-
-        windowCrypto.getRandomValues(buf);
-
-        const name = btoa(String.fromCharCode.apply(null, buf))
-            .replace(/\+/g, '-')
-            .replace(/\//g, '_')
-            .replace(/=/g, '');
-
-        window.open(`${protocol}//${host}/${name}`, '_self');
+        window.open(BRAVE_WIDGET_PAGE, '_self');
     }
 
     /**
